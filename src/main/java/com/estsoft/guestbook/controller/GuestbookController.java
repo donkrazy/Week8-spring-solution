@@ -1,7 +1,6 @@
 package com.estsoft.guestbook.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +21,7 @@ public class GuestbookController {
 	public String index( Model model ) {
 		List<GuestbookVo> list = dao.getList();
 		model.addAttribute( "list", list );
+		System.out.println( "!!!!!!!" );
 		return "/WEB-INF/views/index.jsp";
 	}
 	
@@ -41,5 +41,5 @@ public class GuestbookController {
 	public String add( @ModelAttribute GuestbookVo vo ) {
 		dao.insert(vo);
 		return "redirect:/";
-	}		
+	}
 }
